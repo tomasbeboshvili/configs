@@ -120,12 +120,12 @@ else
     echo "krabby ya está instalado"
 fi
 
-cp -f dotfiles/.config/* ~/.config/
+cp -rf dotfiles/.config/* ~/.config/
 cd dotfiles && stow --adopt .
 
 # Selección de shell Bash o ZSH
 echo "¿Quieres Descargar Oh My Bash o Oh My ZSH?"
-echo "Elige una de estas opciones: [Bash (b), ZSH (z), nada (n)]"
+echo "Elige una de estas opciones: [Bash (1), ZSH (2), nada (3)]"
 opciones=("b" "z" "n")
 select opt in "${opciones[@]}"; do
     case $opt in
@@ -156,10 +156,12 @@ select opt in "${opciones[@]}"; do
             break
             ;;
         *)
-            echo "Opción no válida"
+            echo "Opción no válida, por favor selecciona [1-3]"
             ;;
     esac
 done
+
+
 
 echo "¡La instalación se completó con éxito!"
 echo "Temas de WhiteSur instalados y configuraciones aplicadas."
