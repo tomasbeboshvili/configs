@@ -9,7 +9,7 @@ if [ -f /etc/os-release ]; then
     . /etc/os-release
     OS=$ID
     VERSION=$VERSION_ID
-    BASED=$ID_LIKE # el importante, con esto puedes saber el sistema de paquetes que se usa  
+    BASED=$ID_LIKE # el importante, con esto puedes saber el sistema de paquetes que se usa
 elif [ -f /etc/lsb-release ]; then
     . /etc/lsb-release
     OS=$DISTRIB_ID
@@ -91,6 +91,7 @@ if ! command -v cargo &> /dev/null; then
     fi
 fi
 
+
 # Clonar repositorios de temas
 cd ~/miscellaneous
 echo "Clonand  e instalando temas de WhiteSur..."
@@ -100,17 +101,20 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
+
 git clone https://github.com/vinceliuice/WhiteSur-icon-theme.git && ./WhiteSur-icon-theme/install.sh
 if [ $? -ne 0 ]; then
     echo "Error durante la instalación de los iconos."
     exit 1
 fi
 
+
 git clone https://github.com/vinceliuice/WhiteSur-cursors.git && ./WhiteSur-cursors/install.sh
 if [ $? -ne 0 ]; then
     echo "Error durante la instalación de cursores."
     exit 1
 fi
+
 
 git clone https://github.com/tomasbeboshvili/dotfiles.git
 
@@ -166,4 +170,4 @@ done
 echo "¡La instalación se completó con éxito!"
 echo "Temas de WhiteSur instalados y configuraciones aplicadas."
 
-echo "Ahora queda que entres en la configuracion y apliques los temas"
+echo "Ahora queda que entres en la configuracion de aparencia y apliques los temas"
